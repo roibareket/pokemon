@@ -1,9 +1,11 @@
-package com.openweb.pokemons.dl.services
+package com.openweb.pokemons.services
 
 import android.content.Context
-import com.openweb.pokemons.dl.models.Pokemon
+import android.content.res.AssetManager
+import com.openweb.pokemons.models.Pokemon
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromStream
+import java.io.File
 import java.util.concurrent.Executors
 
 typealias PokemonCallback = Result<List<Pokemon>>

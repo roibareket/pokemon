@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="action_bar_height">38dp</dimen>
-    <dimen name="pokemon_details_avatar_vertical_margin">30dp</dimen>
-</resources>

@@ -1,11 +1,10 @@
 package com.openweb.pokemons.ui.welcome
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import com.example.pokemons.R
-import com.openweb.pokemons.ui.catalog.PokemonCatalogActivity
 
-class WelcomeActivity : AppCompatActivity(), WelcomeFragmentListener {
+class WelcomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -13,12 +12,7 @@ class WelcomeActivity : AppCompatActivity(), WelcomeFragmentListener {
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                     .replace(R.id.container, WelcomeFragment.newInstance())
-                    .commit()
+                    .commitNow()
         }
-    }
-
-    override fun goToMainPokemonsListScreen() {
-        startActivity(PokemonCatalogActivity.newIntent(this))
-        finish()
     }
 }
