@@ -40,11 +40,13 @@ class PokemonsViewModel : ViewModel() {
     fun loadPokemons() {
         viewModelScope.launch {
             uiState.update { it.copy(isPokemonLoading = true) }
-            getPokemonsUseCase.getAllPokemons(onSuccess = { pokemons ->
+            runCatching {
+                getPokemonsUseCase.getAllPokemons()
+            }.onSuccess { pokemons ->
                 uiState.update { it.copy(isPokemonLoading = false, pokemonList = pokemons) }
-            }, onFailure = { ex ->
+            }.onFailure { ex ->
                 uiState.update { it.copy(isPokemonLoading = false, pokemonsLoadingFailure = ex) }
-            })
+            }
         }
     }
 
